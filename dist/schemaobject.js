@@ -1185,7 +1185,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         // Add custom constructors.
         _.each(options.constructors, function (method, key) {
-            SO[key] = function () {
+            SO[key] = async function () {
                 // Initialize new SO.
                 var obj = new SO();
 
@@ -1195,7 +1195,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 };
 
                 // Call custom constructor.
-                method.apply(obj, arguments);
+                await method.apply(obj, arguments);
 
                 // Cleanup and return SO.
                 delete obj[_privateKey]._reservedFields.super;
